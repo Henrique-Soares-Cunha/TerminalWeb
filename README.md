@@ -16,8 +16,8 @@ Open your terminal and follow these steps to clone and set up the project:
 1. Clone the Repository
 Bash
 
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/Henrique-Soares-Cunha/TerminalWeb.git
+cd TerminalWeb
 
 2. Make the Installer Executable
 Bash
