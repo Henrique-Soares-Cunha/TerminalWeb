@@ -2,6 +2,7 @@ import webbrowser
 import json
 import os
 import sys
+import urllib.parse
 
 #Script to open the browser and automatically search for the site using the terminal
 if __name__ == '__main__':
@@ -37,7 +38,12 @@ if __name__ == '__main__':
                 print(f"Abridor web: '{alvo}' aberto com sucesso!")
         else:
             print(f"O site '{alvo}' não está cadastrado no sites.json.")
-            print(f"Disponíveis: {', '.join(sites.keys())}")
+            print(f"Deseja procurar o site diretamente no google?S/n")
+            resposta = input()
+            if resposta.lower() != 'n':
+                termo = urllib.parse.quote_plus(alvo)
+                url = f"https://www.google.com/search?q={termo}"
+                webbrowser.open(url, 2 , True)
 
     except FileNotFoundError:
         print("Erro: Arquivo 'sites.json' não encontrado.")

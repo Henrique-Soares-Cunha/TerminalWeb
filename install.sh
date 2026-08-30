@@ -20,10 +20,12 @@ fi
 if ! grep -q "web()" "$SHELL_CONFIG"; then
     echo "" >> "$SHELL_CONFIG"
     echo "# Web Automation CLI" >> "$SHELL_CONFIG"
-    echo 'web() { python3 '$TARGET_DIR'/webAutomationScript.py "$@" && exit; }' >> "$SHELL_CONFIG"
+    echo 'web() { python3 '$TARGET_DIR'/webAutomationScript.py "$@"; exit; }' >> "$SHELL_CONFIG"
 
     echo "Installation completed successfully!"
     echo "Run 'source $SHELL_CONFIG' or restart your terminal to use the 'web' command."
+    cd ..
+    rm -rf TerminalWeb
 else
     echo "The 'web()' command is already configured in your $SHELL_CONFIG."
 fi
